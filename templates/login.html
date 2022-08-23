@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+        <div class="field">
+            <form action="" method="post">
+                    <p class="control has-icons-left has-icons-right">
+                      <input class="input" type="text" name="username" id="id_username" maxlength="128" placeholder="Username">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                      </span>
+                      <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                      </span>
+                    </p>
+
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      <input class="input" type="password" name="password" id="id_password" maxlength="320" minlength="6" placeholder="Password">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                    </p>
+                  </div>
+                  <div class="field">
+                    <p class="control">
+                      <input class="button is-success is-fullwidth" type="submit" value="Login">
+                    </p>
+                </div>
+            </form>
+        </div>
+     <span style="color: red"><p>{{ errnos }}</p></span>
+</body>
+</html>
