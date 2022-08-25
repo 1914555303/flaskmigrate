@@ -35,29 +35,16 @@ def article_edit(post_id):
     # print(post_id)
     if request.method == 'GET':
         return render_template('article_edit.html')
-    #
 
     post1 = Post.query.filter_by(id=post_id).first()
 
-    print(post1)
-
-    print(request.form['title'])
-
     post1.title = request.form['title']
+    post1.desc = request.form['desc']
+    post1.category_id = request.form['category']
+    tag = request.form['tag']
+    post.content = request.form['content']
 
-
-    # title = request.form['title']
-    # desc = request.form['desc']
-    # category = request.form['category']
-    # tag = request.form['tag']
-    # content = request.form['content']
-    #
-    # article1 = Post(title=title, desc=desc, category_id=category, content=content)
-    # db.session.add(article1)
     db.session.commit()
     errno = '文章修改成功'
-    # return render_template('article_edit.html', errno=errno)
-
-
 
     return render_template('article_edit.html', errno=errno)

@@ -7,6 +7,7 @@ from admin import admin
 from user import user
 from category import categorys
 from article import articles
+from comment import comments
 
 # 目的：练习Flask-Migrate模块的使用
 # 安装依赖：  pip install flask-migrate
@@ -39,6 +40,7 @@ app.register_blueprint(admin)
 app.register_blueprint(user)
 app.register_blueprint(categorys)
 app.register_blueprint(articles)
+app.register_blueprint(comments)
 
 @app.route('/index')
 def index():
@@ -82,9 +84,7 @@ def zhuye():
     pagination = Post.query.order_by(Post.add_date).paginate(page, per_page=2, error_out=False)
     post_list = pagination.items
     post_num = Post.query.count()
-    print(page)
-    print(pagination)
-    print(post_list)
+
 
     return render_template('loginsuccess.html', post_list=post_list, pagination=pagination, post_num=post_num)
 
