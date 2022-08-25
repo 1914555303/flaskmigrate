@@ -71,13 +71,26 @@ def index():
 #             errno = '用户名或密码错误！'
 #             return render_template('login.html', errnos=errno)
 
+# 主页
 @app.route('/zhuye')
 def zhuye():
     username = session.get('username')
     if not username:
         return redirect(url_for('index'))
 
-    return render_template('loginsuccess.html', username=username)
+    page = request.args.get('page', 1, type=int)
+    pagination = Post.query.order_by(Post.add_date).paginate(page, per_page=2, error_out=False)
+    post_list = pagination.items
+    post_num = Post.query.count()
+    print(page)
+    print(pagination)
+    print(post_list)
+
+    return render_template('loginsuccess.html', post_list=post_list, pagination=pagination, post_num=post_num)
+
+
+
+
 
 # 注册
 @app.route('/register', methods=['GET', 'POST'])

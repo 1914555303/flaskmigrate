@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文章管理</title>
+    <title>文章编辑</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <link rel="stylesheet" href="../../static/css/mydefine.css">
 </head>
@@ -35,93 +35,58 @@
             <i class="sidebar icon"></i>
         </a>
     </nav>
+
     <!--------二级导航------->
-    <div class="ui attached pointing menu">
-        <div class="ui container">
-            <div class="right menu">
-                <a href="/article/add" class="item">发布</a>
-                <a href="/article" class="teal active item">列表</a>
-            </div>
-        </div>
-    </div>
-
-
     <!--中间内容-->
     <div class="m-container-small m-paded-tb-big">
         <div class="ui container">
             <!--第一部分-->
-            <form action="#" method="post" class="ui segment form">
-                <div class="inline fields">
+
+            <!--第二部分-->
+            <div class="ui attached message">
+
+            <form action="" method="post" class="ui form attached fluid segment" >
+
+                <div class="ui form">
                     <div class="field">
-                        <input type="text" name="title" placeholder="标题">
+                        <label>标题</label>
+                        <input type="text" name="title" placeholder="">
                     </div>
+                </div>
+                <div class="ui form">
                     <div class="field">
-                        <div class="ui selection dropdown">
-                            <input type="hidden" name="type">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">分类</div>
-                            <div class="menu">
-                                <div class="item" data-value="1">错误日志</div>
-                                <div class="item" data-value="2">开发者手册</div>
-                            </div>
-                        </div>
+                        <label>描述</label>
+                        <input type="text" name="desc" placeholder="">
                     </div>
+                </div>
+                <div class="ui form">
                     <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" id="recommend" name="recommend">
-                            <label for="recommend">推荐</label>
-                        </div>
+                        <label>分类</label>
+                        <input type="text" name="" placeholder="}">
                     </div>
+                </div>
+                <div class="ui form">
                     <div class="field">
-                        <button class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+                        <label>标签</label>
+                        <input type="text" name="tag" >
+                    </div>
+                </div>
+
+                <div class="ui form">
+                  <div class="field">
+                    <label>文章内容</label>
+                    <textarea name="content" placeholder=""></textarea>
+                  </div>
+                </div>
+
+                <div class="ui form">
+                    <div class="field">
+                        <button class="ui blue submit button" type="submit">提交</button>
                     </div>
                 </div>
             </form>
-            <!--第二部分-->
-            <table class="ui celled table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>标题</th>
-                        <th>发布状态</th>
-                        <th>归属分类</th>
-                        <th>标签</th>
-                        <th>发布日期</th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for post in post_list %}
-                        <tr>
-                            <td>{{ post.id }}</td>
-                            <td>{{ post.title }}</td>
-                            <td>{{ post.has_type.name }}</td>
-                            <td>{{ post.category.name }}</td>
-                            <td>{{ post.tags|join(',') }}</td>
-                            <td>{{ post.add_date }}</td>
-                            <td>
-                                <a href="{{ url_for('articles.article_edit', post_id=post.id)}}" class="ui primary basic button">编辑</a>
-                                <a href="#" class="ui negative basic button">删除</a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th colspan="6">
-                        <div class="ui mini pagination menu">
-                            {% if pagination.has_prev%}
-                            <a href="{{ url_for('articles.article')}}?page={{ pagination.prev_num }}" class="item">上一页</a>
-                            {% endif %}
-                            {% if pagination.has_next %}
-                            <a href="{{ url_for('articles.article') }}?page={{ pagination.next_num }}" class="item">下一页</a>
-                            {% endif %}
-                        </div>
-                        <a href="/article/add" class="ui right floated mini teal basic button">新增</a>
-                    </th>
-                </tr>
-                </tfoot>
-            </table>
+            <a style="color:red">{{ errno }}</a>
+            </div>
         </div>
     </div>
 
