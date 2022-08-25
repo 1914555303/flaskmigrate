@@ -33,11 +33,15 @@ def article_add():
 @articles.route('/edit/<post_id>', methods=['GET', 'POST'])
 def article_edit(post_id):
     # print(post_id)
-    # if request.method == 'GET':
-    #     return render_template('article_edit.html')
+    if request.method == 'GET':
+        return render_template('article_edit.html')
     #
 
-    post1 = Post.query.get(post_id)
+    post1 = Post.query.filter_by(id=post_id).first()
+
+    print(post1)
+
+    print(request.form['title'])
 
     post1.title = request.form['title']
 
@@ -56,4 +60,4 @@ def article_edit(post_id):
 
 
 
-    return render_template('article_edit.html')
+    return render_template('article_edit.html', errno=errno)
