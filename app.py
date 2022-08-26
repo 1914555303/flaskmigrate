@@ -84,7 +84,7 @@ def zhuye():
     pagination = Post.query.order_by(Post.add_date).paginate(page, per_page=3, error_out=False)
     post_list = pagination.items
     post_num = Post.query.count()
-    return render_template('loginsuccess.html', post_list=post_list, pagination=pagination, post_num=post_num)
+    return render_template('loginsuccess.html', post_list=post_list, pagination=pagination, post_num=post_num, username=username)
 
 
 # 注册

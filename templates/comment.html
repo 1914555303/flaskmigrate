@@ -64,7 +64,7 @@
                                             <div class="ui mini horizontal link list">
                                                 <div class="item">
                                                     <img src="../static/images/2.jpg" alt="" class="ui avatar image">
-                                                    <div class="content"><a class="header">瑾辰</a></div>
+                                                    <div class="content"><a class="header">瑾辰{{ session['username'] }}</a></div>
                                                 </div>
                                                 <div class="item">
                                                     <i class="calender icon"></i> {{ post1.pub_date }}
@@ -108,6 +108,7 @@
                                     <textarea name="content1" placeholder="想说点什么呢。。。"></textarea>
                                     <button class="ui blue submit button" type="submit">提交</button>
                                     <a href="{{url_for('comments.comment', posts_id=post_id1)}}" target="_blank" class="ui blue submit button">刷新</a>
+                                    <a style="color: red">{{ errno }}</a>
                                 </form>
                             </div>
                         </div>

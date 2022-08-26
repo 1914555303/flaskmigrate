@@ -64,7 +64,7 @@ class Tag(db.Model):
 class Comments(db.Model):
     """评论
     """
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     article_id = db.Column(db.Integer, nullable=False)
     comment_content = db.Column(LONGTEXT, nullable=False)
     add_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)  # 创建时间
