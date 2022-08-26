@@ -34,17 +34,31 @@ def article_add():
 def article_edit(post_id):
     # print(post_id)
     if request.method == 'GET':
-        return render_template('article_edit.html')
+        post1 = Post.query.filter_by(id=post_id).first()
+        return render_template('article_edit.html', post1=post1)
 
     post1 = Post.query.filter_by(id=post_id).first()
+
+    print(request.form['title'])
+    print(request.form['desc'])
+    if request.form['title']=='' or request.form['desc']=='' or request.form['category']=='' or request.form['content']=='' or request.form['tag']=='':
+        errno = '不可以为空！'
+        return render_template('article_edit.html', errno=errno,post1=post1)
 
     post1.title = request.form['title']
     post1.desc = request.form['desc']
     post1.category_id = request.form['category']
     tag = request.form['tag']
-    post.content = request.form['content']
+    post1.content = request.form['content']
 
     db.session.commit()
     errno = '文章修改成功'
 
-    return render_template('article_edit.html', errno=errno)
+    return render_template('article_edit.html', errno=errno,post1=post1)
+
+@articles.route('/delete/<post_id>', methods=['GET', 'POST'])
+def article_delete(post_id):
+    Post.query.filter(Post.id==post_id).delete()
+    db.session.commit()
+    return redirect(url_for('articles.article'))
+

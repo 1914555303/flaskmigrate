@@ -81,15 +81,10 @@ def zhuye():
         return redirect(url_for('index'))
 
     page = request.args.get('page', 1, type=int)
-    pagination = Post.query.order_by(Post.add_date).paginate(page, per_page=2, error_out=False)
+    pagination = Post.query.order_by(Post.add_date).paginate(page, per_page=3, error_out=False)
     post_list = pagination.items
     post_num = Post.query.count()
-
-
     return render_template('loginsuccess.html', post_list=post_list, pagination=pagination, post_num=post_num)
-
-
-
 
 
 # 注册
@@ -128,8 +123,6 @@ def logoutpage():
     session.clear()
     return redirect(url_for('index'))
 
-
-
 # @app.route('/category')
 # def category():
 #     page = request.args.get('page', 1, type=int)
@@ -140,7 +133,6 @@ def logoutpage():
 #     print(category_list)
 #     return render_template('category.html', category_list=category_list, pagination=pagination)
 
-
 # @app.route('/article')
 # def article():
 #     page = request.args.get('page', 1, type=int)
@@ -148,12 +140,7 @@ def logoutpage():
 #     post_list = pagination.items
 #     return render_template('article.html',post_list=post_list, pagination=pagination)
 
-
-
-
     # return render_template('login.html')
-
-
 
 
 if __name__ == '__main__':

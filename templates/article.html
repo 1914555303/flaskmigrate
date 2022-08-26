@@ -16,7 +16,7 @@
             <h2 class="ui teal header item">文章管理</h2>
              <a href="/zhuye" class="active m-item item m-mobile-hide"><i class=" home icon"></i>博客</a>
              <a href="/category" class=" m-item item m-mobile-hide"><i class=" idea icon"></i>分类</a>
-             <a href="#" class=" m-item item m-mobile-hide"><i class=" tags icon"></i>标签</a>
+             <a href="/logout" class="m-item item m-mobile-hide"><i class=" info icon"></i>注销</a>
              <div class="right menu">
                  <div class="ui m-item m-mobile-hide dropdown item">
                      <div class="text">
@@ -101,7 +101,7 @@
                             <td>{{ post.add_date }}</td>
                             <td>
                                 <a href="{{ url_for('articles.article_edit', post_id=post.id)}}" class="ui primary basic button">编辑</a>
-                                <a href="#" class="ui negative basic button">删除</a>
+                                <a href="{{ url_for('articles.article_delete', post_id=post.id)}}" class="ui negative basic button">删除</a>
                             </td>
                         </tr>
                     {% endfor %}

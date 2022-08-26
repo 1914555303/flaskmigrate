@@ -61,3 +61,10 @@ class Tag(db.Model):
     add_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow, )  # 创建时间
     pub_date = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)  # 更新时间
 
+class Comments(db.Model):
+    """评论
+    """
+    id = db.Column(db.Integer, primary_key=True)
+    article_id = db.Column(db.Integer, nullable=False)
+    comment_content = db.Column(LONGTEXT, nullable=False)
+    add_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)  # 创建时间

@@ -16,7 +16,7 @@
             <h2 class="ui teal header item">文章管理</h2>
              <a href="/zhuye" class="active m-item item m-mobile-hide"><i class=" home icon"></i>博客</a>
              <a href="/category" class=" m-item item m-mobile-hide"><i class=" idea icon"></i>分类</a>
-             <a href="#" class=" m-item item m-mobile-hide"><i class=" tags icon"></i>标签</a>
+             <a href="/logout" class="m-item item m-mobile-hide"><i class=" info icon"></i>注销</a>
              <div class="right menu">
                  <div class="ui m-item m-mobile-hide dropdown item">
                      <div class="text">
@@ -51,38 +51,39 @@
                 <div class="ui form">
                     <div class="field">
                         <label>标题</label>
-                        <input type="text" name="title" placeholder="">
+                        <input type="text" name="title" placeholder="{{ post1.title }}">
                     </div>
                 </div>
                 <div class="ui form">
                     <div class="field">
                         <label>描述</label>
-                        <input type="text" name="desc" placeholder="">
+                        <input type="text" name="desc" placeholder="{{ post1.desc }}">
                     </div>
                 </div>
                 <div class="ui form">
                     <div class="field">
                         <label>分类</label>
-                        <input type="text" name="" placeholder="">
+                        <input type="text" name="category" placeholder="{{ post1.category_id }}">
                     </div>
                 </div>
                 <div class="ui form">
                     <div class="field">
                         <label>标签</label>
-                        <input type="text" name="tag" >
+                        <input type="text" name="tag" placeholder="{{ post1.tag }}">
                     </div>
                 </div>
 
                 <div class="ui form">
                   <div class="field">
                     <label>文章内容</label>
-                    <textarea name="content" ></textarea>
+                    <textarea name="content" placeholder="{{ post1.content }}"></textarea>
                   </div>
                 </div>
 
                 <div class="ui form">
                     <div class="field">
-                        <button class="ui blue submit button" type="submit">提交</button>
+                            <button class="ui blue submit button" type="submit">提交</button>
+                            <a href="{{url_for('articles.article')}}" target="_blank" class="ui blue submit button">返回</a>
                     </div>
                 </div>
             </form>

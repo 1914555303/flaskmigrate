@@ -8,20 +8,15 @@
     <link rel="stylesheet" href="../static/css/mydefine.css">
 </head>
 <body>
-<h2>欢迎来到{{ username }}的博客</h2>
-<a href='/logout'>注销</a>
-
-
     <!--导航-->
     <nav class="ui inverted attached segment m-paded-tb-mini m-shadow-small">
       <div class="ui container ">
          <div class="ui inverted secondary stackable menu">
-            <h2 class="ui teal header item">Blog</h2>
+            <h2 class="ui teal header item">FlaskBlog</h2>
              <a href='/zhuye' class="active m-item item m-mobile-hide"><i class=" home icon"></i>首页</a>
              <a href='/category' class="m-item item m-mobile-hide"><i class=" idea icon"></i>分类</a>
-             <a href="#" class="m-item item m-mobile-hide"><i class=" tags icon"></i>标签</a>
              <a href="/article" class="m-item item m-mobile-hide"><i class=" clone icon"></i>归档</a>
-             <a href="#" class="m-item item m-mobile-hide"><i class=" info icon"></i>关于我</a>
+             <a href="/logout" class="m-item item m-mobile-hide"><i class=" info icon"></i>注销</a>
              <div class="right m-item item m-mobile-hide">
                  <div class="ui icon input">
                      <input type="text" placeholder="搜索">
@@ -34,8 +29,6 @@
             <i class="sidebar icon"></i>
         </a>
     </nav>
-
-
 
     <!--中间内容-->
     <div class="m-container m-paded-tb-big">
@@ -95,46 +88,7 @@
                                 </div>
                             </div>
                         </div>
-
                         {% endfor %}
-
-
-                        <div class="ui padded vertical segment m-paded-tb-large">
-                            <div class="ui mobile reversed stackable grid">
-                                <div class="eleven wide column">
-                                    <h3 class="ui header">云南旅游攻略~大理旅游篇</h3>
-                                    <p class="m-text">白族的很多节日和盛会多集中在每年的3至4月间，此时来游，会感受到浓郁的民族风情。有歌唱到：“大理三月好风光”，所以在春季，是再适合不过了。总的来说，大理是一个四季都适合旅游的好地方，她也是中国的“十佳旅游城市”之一。</p>
-                                    <div class="ui grid">
-                                        <div class="eleven wide column">
-                                            <div class="ui mini horizontal link list">
-                                                <div class="item">
-                                                    <img src="../static/images/2.jpg" alt="" class="ui avatar image">
-                                                    <div class="content"><a class="header">瑾辰</a></div>
-                                                </div>
-                                                <div class="item">
-                                                    <i class="calender icon"></i> 2021-4-28
-                                                </div>
-                                                <div class="item">
-                                                    <i class="eye icon"></i> 1234
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="right aligned five wide column">
-                                            <a href="#" target="_blank" class="ui teal basic label m-paded-tiny">认知升级</a>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="five wide column">
-                                    <a href="#" target="_blank">
-                                        <img src="https://picsum.photos/800/450" alt="" class="ui rounded image">
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
 
                     </div>
 
